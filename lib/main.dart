@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_cpu/pages/home_page.dart';
+import 'package:my_cpu/pages/homePage/home_page.dart';
 import './theme.dart';
 import './routes.dart';
 
@@ -12,9 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        WidgetsBinding.instance?.focusManager.primaryFocus?.unfocus();
-      },
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'My CPU',
