@@ -7,7 +7,6 @@ ThemeData theme() {
     primaryColor: kPrimaryColor,
     scaffoldBackgroundColor: kMainBackGroundColor,
     appBarTheme: appBarTheme(),
-    textTheme: textTheme(),
     inputDecorationTheme: inputDecorationTheme(),
     textSelectionTheme: textSelectionTheme(),
     bottomNavigationBarTheme: bottomNavigationBarThemeData(),
@@ -31,39 +30,6 @@ AppBarTheme appBarTheme() {
 
 TextSelectionThemeData textSelectionTheme() =>
     TextSelectionThemeData(cursorColor: kPrimaryColor);
-
-TextTheme textTheme() {
-  return TextTheme(
-    bodyText1: TextStyle(
-      fontSize: 22,
-      fontWeight: FontWeight.bold,
-      color: kTextColor,
-    ),
-    bodyText2: TextStyle(
-      fontSize: 17,
-      color: kSecondaryTextColor,
-    ),
-    headline2: TextStyle(
-      fontSize: 17,
-      fontWeight: FontWeight.bold,
-      color: kTextColor,
-    ),
-    headline3: TextStyle(
-      fontSize: 15,
-      fontWeight: FontWeight.bold,
-      color: kTextColor,
-    ),
-    headline4: TextStyle(
-      fontSize: 13,
-      color: kSecondaryTextColor,
-    ),
-    headline5: TextStyle(
-      fontSize: 17,
-      fontWeight: FontWeight.bold,
-      color: kSecondaryColor,
-    ),
-  );
-}
 
 InputDecorationTheme inputDecorationTheme() {
   var outlineInputBorder = OutlineInputBorder(

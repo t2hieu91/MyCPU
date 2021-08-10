@@ -19,8 +19,8 @@ class ListSectionLine extends StatelessWidget {
         bottom: kDefaultPadding,
       ),
       decoration: BoxDecoration(
-        border: Border.symmetric(
-          horizontal: BorderSide(
+        border: Border(
+          bottom: BorderSide(
             color: kSectionLineColor,
           ),
         ),

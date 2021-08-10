@@ -9,12 +9,14 @@ class ListItemButton extends StatelessWidget {
     required this.title,
     this.titleData = '',
     this.iconData = Icons.smartphone,
+    this.showRightAction = true,
   }) : super(key: key);
 
   final VoidCallback onPress;
   final String title;
   final String titleData;
   final IconData iconData;
+  final bool showRightAction;
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +27,9 @@ class ListItemButton extends StatelessWidget {
         onPressed: onPress,
         style: TextButton.styleFrom(
           minimumSize: Size.zero,
-          padding: const EdgeInsets.only(
+          padding: EdgeInsets.only(
             left: kDefaultPadding,
-            right: kDefaultPadding / 2,
+            right: showRightAction ? kDefaultPadding / 2 : kDefaultPadding,
           ),
         ),
         child: Row(
@@ -53,11 +55,12 @@ class ListItemButton extends StatelessWidget {
                 fontSize: 18,
               ),
             ),
-            Icon(
-              Icons.chevron_right,
-              size: 35,
-              color: Color(0xffD8D8D8),
-            ),
+            if (showRightAction)
+              Icon(
+                Icons.chevron_right,
+                size: 35,
+                color: Color(0xffD8D8D8),
+              ),
           ],
         ),
       ),
