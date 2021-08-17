@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../colors.dart';
+import 'package:my_cpu/core/themes/colors.dart';
 
 class Line extends StatelessWidget {
   const Line({Key? key}) : super(key: key);

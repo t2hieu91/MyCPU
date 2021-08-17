@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../constants.dart';
-import '../colors.dart';
+import 'package:my_cpu/core/constants.dart';
+import 'package:my_cpu/core/themes/colors.dart';
 
 class ListItemButton extends StatelessWidget {
   const ListItemButton({

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import './colors.dart';
-
-const kDefaultPadding = 15.0;
+import '../themes/colors.dart';
 
 TextStyle kSectionTextStyle() {
   return TextStyle(

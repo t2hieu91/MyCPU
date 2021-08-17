@@ -1,24 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:my_cpu/components/line.dart';
-import 'package:my_cpu/components/list_item_button.dart';
-import 'package:my_cpu/components/list_section_line.dart';
+import 'package:get/get.dart';
+import 'package:my_cpu/feature/device/device_controller.dart';
+import 'package:my_cpu/widgets/line.dart';
+import 'package:my_cpu/widgets/list_item_button.dart';
+import 'package:my_cpu/widgets/list_section_line.dart';
 
-import './overview_data.dart';
-
-class OverviewPage extends StatelessWidget {
-  static String routeName = "/overview-page";
-
+class DevicePage extends GetView<DeviceController> {
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)?.settings.arguments as Map;
-    final title = args['title'];
-    final basicItems = basicData;
-    final bluetoothItems = bluetoothData;
-    final dimensionsItems = dimensionsData;
-
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text('device'.tr),
       ),
       body: SafeArea(
         child: Scrollbar(
@@ -28,13 +20,13 @@ class OverviewPage extends StatelessWidget {
               children: [
                 ListSectionLine(title: 'BASIC'),
                 Container(
-                  height: basicItems.length * 60,
+                  height: controller.basicItems.length * 60,
                   child: ListView.separated(
                     physics: const NeverScrollableScrollPhysics(),
-                    itemCount: basicItems.length,
+                    itemCount: controller.basicItems.length,
                     separatorBuilder: (ctx, index) => Line(),
                     itemBuilder: (ctx, index) {
-                      final item = basicItems[index];
+                      final item = controller.basicItems[index];
                       return ListItemButton(
                         onPress: () {
                           print('onPress: ${item.title}');
@@ -48,13 +40,13 @@ class OverviewPage extends StatelessWidget {
                 ),
                 ListSectionLine(title: 'BLUETOOTH'),
                 Container(
-                  height: bluetoothItems.length * 60,
+                  height: controller.bluetoothItems.length * 60,
                   child: ListView.separated(
                     physics: const NeverScrollableScrollPhysics(),
-                    itemCount: bluetoothItems.length,
+                    itemCount: controller.bluetoothItems.length,
                     separatorBuilder: (ctx, index) => Line(),
                     itemBuilder: (ctx, index) {
-                      final item = bluetoothItems[index];
+                      final item = controller.bluetoothItems[index];
                       return ListItemButton(
                         onPress: () {
                           print('onPress: ${item.title}');
@@ -68,14 +60,14 @@ class OverviewPage extends StatelessWidget {
                 ),
                 ListSectionLine(title: 'DIMENSIONS'),
                 Container(
-                  height: dimensionsItems.length * 60,
+                  height: controller.dimensionsItems.length * 60,
                   child: Scrollbar(
                     child: ListView.separated(
                       physics: const NeverScrollableScrollPhysics(),
-                      itemCount: dimensionsItems.length,
+                      itemCount: controller.dimensionsItems.length,
                       separatorBuilder: (ctx, index) => Line(),
                       itemBuilder: (ctx, index) {
-                        final item = dimensionsItems[index];
+                        final item = controller.dimensionsItems[index];
                         return ListItemButton(
                           onPress: () {
                             print('onPress: ${item.title}');
