@@ -19,55 +19,15 @@ class DevicePage extends GetView<DeviceController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ListSectionLine(title: 'BASIC'),
-                Container(
-                  height: controller.basicItems.length * 60,
-                  child: ListView.separated(
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: controller.basicItems.length,
-                    separatorBuilder: (ctx, index) => Line(),
-                    itemBuilder: (ctx, index) {
-                      final item = controller.basicItems[index];
-                      return ListItemButton(
-                        onPress: () {
-                          print('onPress: ${item.title}');
-                        },
-                        title: item.title,
-                        titleData: item.titleData,
-                        showRightAction: false,
-                      );
-                    },
-                  ),
-                ),
-                ListSectionLine(title: 'BLUETOOTH'),
-                Container(
-                  height: controller.bluetoothItems.length * 60,
-                  child: ListView.separated(
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: controller.bluetoothItems.length,
-                    separatorBuilder: (ctx, index) => Line(),
-                    itemBuilder: (ctx, index) {
-                      final item = controller.bluetoothItems[index];
-                      return ListItemButton(
-                        onPress: () {
-                          print('onPress: ${item.title}');
-                        },
-                        title: item.title,
-                        titleData: item.titleData,
-                        showRightAction: false,
-                      );
-                    },
-                  ),
-                ),
-                ListSectionLine(title: 'DIMENSIONS'),
-                Container(
-                  height: controller.dimensionsItems.length * 60,
-                  child: Scrollbar(
+                Obx(
+                  () => Container(
+                    height: controller.basicItems.length * 60,
                     child: ListView.separated(
                       physics: const NeverScrollableScrollPhysics(),
-                      itemCount: controller.dimensionsItems.length,
+                      itemCount: controller.basicItems.length,
                       separatorBuilder: (ctx, index) => Line(),
                       itemBuilder: (ctx, index) {
-                        final item = controller.dimensionsItems[index];
+                        final item = controller.basicItems[index];
                         return ListItemButton(
                           onPress: () {
                             print('onPress: ${item.title}');
@@ -77,6 +37,52 @@ class DevicePage extends GetView<DeviceController> {
                           showRightAction: false,
                         );
                       },
+                    ),
+                  ),
+                ),
+                ListSectionLine(title: 'BLUETOOTH'),
+                Obx(
+                  () => Container(
+                    height: controller.bluetoothItems.length * 60,
+                    child: ListView.separated(
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: controller.bluetoothItems.length,
+                      separatorBuilder: (ctx, index) => Line(),
+                      itemBuilder: (ctx, index) {
+                        final item = controller.bluetoothItems[index];
+                        return ListItemButton(
+                          onPress: () {
+                            print('onPress: ${item.title}');
+                          },
+                          title: item.title,
+                          titleData: item.titleData,
+                          showRightAction: false,
+                        );
+                      },
+                    ),
+                  ),
+                ),
+                ListSectionLine(title: 'DIMENSIONS'),
+                Obx(
+                  () => Container(
+                    height: controller.dimensionsItems.length * 60,
+                    child: Scrollbar(
+                      child: ListView.separated(
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: controller.dimensionsItems.length,
+                        separatorBuilder: (ctx, index) => Line(),
+                        itemBuilder: (ctx, index) {
+                          final item = controller.dimensionsItems[index];
+                          return ListItemButton(
+                            onPress: () {
+                              print('onPress: ${item.title}');
+                            },
+                            title: item.title,
+                            titleData: item.titleData,
+                            showRightAction: false,
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ),
