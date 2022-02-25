@@ -17,11 +17,17 @@ AppBarTheme appBarTheme() {
     color: Colors.white,
     iconTheme: IconThemeData(color: kPrimaryColor),
     actionsIconTheme: IconThemeData(color: kPrimaryColor),
-    textTheme: TextTheme(
+    toolbarTextStyle: TextTheme(
       headline6: TextStyle(
         color: kTitleTextColor,
         fontSize: 24.0,
       ),
-    ),
+    ).bodyText2,
+    titleTextStyle: TextTheme(
+      headline6: TextStyle(
+        color: kTitleTextColor,
+        fontSize: 24.0,
+      ),
+    ).headline6,
   );
 }
